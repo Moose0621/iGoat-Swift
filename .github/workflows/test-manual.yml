@@ -14,7 +14,7 @@ jobs:
       - uses: BSFishy/pip-action@v1
         with: 
           packages: |
-          mobsfscan
+           mobsfscan
       - run: python mobsfscan --sarif --output results.sarif .
       - name: Upload mobsfscan report
         uses: github/codeql-action/upload-sarif@v1
