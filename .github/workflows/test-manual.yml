@@ -12,7 +12,7 @@ jobs:
         with:
           python-version: '3.9.1' # SemVer's version range syntax
       - run: |
-         python3 -m pip3 install --pre --upgrade mobsfscan
+         pip install --upgrade mobsfscan
          mobsfscan --sarif --output results.sarif .
       - name: Upload mobsfscan report
         uses: github/codeql-action/upload-sarif@v1
