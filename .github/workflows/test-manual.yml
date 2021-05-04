@@ -15,7 +15,7 @@ jobs:
         with: 
           packages: |
            mobsfscan
-      - run: python mobsfscan --sarif --output results.sarif .
+      - run: mobsfscan --sarif --output results.sarif .
       - name: Upload mobsfscan report
         uses: github/codeql-action/upload-sarif@v1
         with:
