@@ -22,7 +22,7 @@ jobs:
         run: |
           ls -la
           python -m pip install --upgrade pip
-          pip install setuptools wheel twine mobsfscan/
+          pip install setuptools wheel twine .
 
          
       - run: mobsfscan --sarif --output results.sarif .
