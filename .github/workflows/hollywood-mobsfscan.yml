@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@master
+        uses: actions/checkout@main
 
       - name: Set-up Java
         uses: actions/setup-java@v1
@@ -17,7 +17,7 @@ jobs:
           java-version: '12.x'
 
       - name: Set-up Flutter
-        uses: subosito/flutter-action@v1
+        uses: subosito/flutter-action@latest
         with:
           flutter-version: '1.9.1+hotfix.6'
 
@@ -28,12 +28,12 @@ jobs:
         run: flutter test
 
       - name: Flutter Build
-        run: flutter build apk
+        run: flutter build ipa
 
       - name: Run MobSF Analysis
-        uses: fundacaocerti/mobsf-action@v1.6
+        uses: fundacaocerti/mobsf-action@latest
         env:
-          INPUT_FILE_NAME: ./iGoat-Swift.ipa
+          INPUT_FILE_NAME: iGoat-Swift.ipa
           SCAN_TYPE: ipa
           OUTPUT_FILE_NAME: mobsf-report
 
