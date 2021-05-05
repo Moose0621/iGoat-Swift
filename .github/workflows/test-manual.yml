@@ -17,7 +17,7 @@ jobs:
           python-version: '3.9.1' # SemVer's version range syntax
       - uses: BSFishy/pip-action@v1
         with: 
-          editable: ''
+          editable: 'mobsfscan/'
           packages: |
            mobsfscan
       - run: mobsfscan --sarif --output results.sarif .
