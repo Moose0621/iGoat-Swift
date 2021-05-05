@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Hollywood Build
 on:
   workflow_dispatch:
 
@@ -32,7 +32,7 @@ jobs:
       - name: Run MobSF Analysis
         uses: fundacaocerti/mobsf-action@v1.6
         env:
-          INPUT_FILE_NAME: iGoat-Swift.ipa
+          INPUT_FILE_NAME: ./iGoat-Swift.ipa
           SCAN_TYPE: ipa
           OUTPUT_FILE_NAME: mobsf-report
 
