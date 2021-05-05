@@ -1,20 +1,49 @@
-name: mobsfscan sarif
+name: Build and Deploy
 on:
   workflow_dispatch:
-  
+
 jobs:
-  njsscan:
+  build:
+    name: Build
     runs-on: ubuntu-latest
-    name: mobsfscan code scanning
     steps:
-    - name: Checkout the code
-      uses: actions/checkout@v2
-    - name: mobsfscan scan
-      id: mobsfscan
-      uses: MobSF/mobsfscan-action@main
-      with:
-        args: '. --sarif --output results.sarif || true'
-    - name: Upload mobsfscan report
-      uses: github/codeql-action/upload-sarif@v1
-      with:
-        sarif_file: results.sarif
+      - name: Checkout Repo
+        uses: actions/checkout@master
+
+      - name: Set-up Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: '12.x'
+
+      - name: Set-up Flutter
+        uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '1.9.1+hotfix.6'
+
+      - name: Flutter Install Dependencies
+      - run: flutter pub get
+
+      - name: Flutter Test
+        run: flutter test
+
+      - name: Flutter Build
+        run: flutter build apk
+
+      - name: Run MobSF Analysis
+        uses: fundacaocerti/mobsf-action@v1.6
+        env:
+          INPUT_FILE_NAME: iGoat-Swift.ipa
+          SCAN_TYPE: ipa
+          OUTPUT_FILE_NAME: mobsf-report
+
+      - name: Upload MobSF Analysis PDF Result
+        uses: actions/upload-artifact@v2
+        with:
+          name: mobsf-report.pdf
+          path: mobsf-report.pdf
+
+      - name: Upload MobSF Analysis JSON Result
+        uses: actions/upload-artifact@v2
+        with:
+          name: mobsf-report.json
+          path: mobsf-report.json
