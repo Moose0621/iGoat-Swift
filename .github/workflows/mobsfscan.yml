@@ -9,17 +9,9 @@ jobs:
     steps:
     - name: Checkout the code
       uses: actions/checkout@v2
-    - uses: actions/setup-python@v2
-      with:
-        python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
-        architecture: 'x86' # optional x64 or x86. Defaults to x64 if not specified
-    - uses: BSFishy/pip-action@v1
-      with:
-        packages: mobsfscan
-        editable: ''
     - name: mobsfscan scan
       id: mobsfscan
-      uses: MobSF/mobsfscan-action@latest
+      uses: MobSF/mobsfscan-action@main
       with:
         args: '. --sarif --output results.sarif || true'
     - name: Upload mobsfscan report
