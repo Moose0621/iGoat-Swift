@@ -1,10 +1,11 @@
 name: Hollywood Build
+
 on:
   workflow_dispatch:
 
 jobs:
-  build:
-    name: Build
+  Hollywood:
+    name: Hollywood
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
