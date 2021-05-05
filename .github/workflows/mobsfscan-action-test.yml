@@ -34,8 +34,6 @@ jobs:
          
       - name: Run mobsfscan
         run: |
-          ls -la 
-          ls -la ../
           mobsfscan --sarif --output results.sarif ../iGoat-Swift/
           
       - name: Upload mobsfscan report
