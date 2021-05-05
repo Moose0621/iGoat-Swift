@@ -24,6 +24,7 @@ jobs:
         uses: actions/setup-python@v2
         with:
          python-version: '3.x'
+         
       - name: Install dependencies
         run: |
           ls -la
@@ -31,7 +32,11 @@ jobs:
           pip install setuptools wheel twine .
 
          
-      - run: mobsfscan --sarif --output results.sarif .
+      - name: Run mobsfscan
+        run: |
+          ls -la 
+          mobsfscan --sarif --output results.sarif .
+          
       - name: Upload mobsfscan report
         uses: github/codeql-action/upload-sarif@v1
         with:
