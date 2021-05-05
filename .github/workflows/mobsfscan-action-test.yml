@@ -34,7 +34,7 @@ jobs:
          
       - name: Run mobsfscan
         run: |
-          cd ../iGoat*/
+          cd ../iGoat*/; pwd; ls la
           mobsfscan --sarif --output results.sarif .
           
       - name: Upload mobsfscan report
