@@ -34,7 +34,7 @@ jobs:
          
       - name: Run mobsfscan
         run: |
-          cd ../; pwd; ls -la; mobsfscan --sarif --output results.sarif .
+          cd ~; pwd; ls -la; mobsfscan --sarif --output results.sarif .
           
       - name: Upload mobsfscan report
         uses: github/codeql-action/upload-sarif@v1
