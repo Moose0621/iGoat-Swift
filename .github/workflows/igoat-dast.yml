@@ -1,4 +1,4 @@
-name: Run mobsfscan
+name: DAST Scan
 on:
   push:
   workflow_dispatch:
