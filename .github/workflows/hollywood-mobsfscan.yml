@@ -1,11 +1,10 @@
-name: Hollywood Build
-
+name: hollywood-mobsfscan
 on:
   workflow_dispatch:
 
 jobs:
-  Hollywood:
-    name: Hollywood
+  Build:
+    name: Build and Scan
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
