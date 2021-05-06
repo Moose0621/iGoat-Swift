@@ -31,9 +31,9 @@ jobs:
         run: flutter build ipa
 
       - name: Run MobSF Analysis
-        uses: fundacaocerti/mobsf-action@latest
+        uses: fundacaocerti/mobsf-action@v1.5
         env:
-          INPUT_FILE_NAME: iGoat-Swift.ipa
+          INPUT_FILE_NAME: ./iGoat-Swift.ipa
           SCAN_TYPE: ipa
           OUTPUT_FILE_NAME: mobsf-report
 
