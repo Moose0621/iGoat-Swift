@@ -7,7 +7,7 @@ on:
   
 jobs:
   build:
-    runs-on: moose-1
+    runs-on: ubuntu-latest
     steps:
     
       - name: Checkout
