@@ -33,7 +33,7 @@ jobs:
          
       - name: Run mobsfscan
         run: |
-          mobsfscan --sarif --output results.sarif *.ipa
+          mobsfscan --sarif --output results.sarif iGoat-Swift.ipa
           
       - name: Upload mobsfscan report
         uses: github/codeql-action/upload-sarif@v1
