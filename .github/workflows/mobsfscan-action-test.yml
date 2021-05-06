@@ -34,7 +34,7 @@ jobs:
          
       - name: Run mobsfscan
         run: |
-          mobsfscan --sarif --output results.sarif iGoat-Swift/
+          mobsfscan --sarif --output results.sarif iGoat-Swift/ || true
           
           
       - name: Upload mobsfscan report
