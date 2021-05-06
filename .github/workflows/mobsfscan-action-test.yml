@@ -1,4 +1,4 @@
-name: Run Script
+name: Run mobsfscan scan
 
 on:
   workflow_dispatch:
@@ -33,7 +33,7 @@ jobs:
          
       - name: Run mobsfscan
         run: |
-          cd ../iGoat*; pwd; ls -la; mobsfscan --exit-warning --sarif --output results.sarif .; cat results.sarif
+          mobsfscan --exit-warning --sarif --output results.sarif .
           
       - name: Upload mobsfscan report
         uses: github/codeql-action/upload-sarif@v1
